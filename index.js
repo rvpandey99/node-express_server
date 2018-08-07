@@ -4,9 +4,7 @@ const app = express();
 app.use(express.json());
 
 let issues = [
-    {"id": 1, "description": "dhfggfghjghgjhjhhj hg g ghghg"},
-    {"id": 2, "description": "hjghgjhjhhj jhg g ghghg"},
-    {"id": 3, "description": "fggfghjghghhj gjg g gghg"}
+    {"id": 1, "CreatedDate": "14/15/2018", "description": "dhfggfghjghgjhjhhj hg g ghghg"}
 ];
 app.use(express.json());
 
@@ -29,8 +27,9 @@ app.get('/*', (req,res)=> {
 });
 
 app.post('/issues', (req,res)=> {
-    const issue = { id: req.body.id,
-        name: req.body.createdDate,
+    const issue = { "id": req.body.id,
+        "CreatedDate": req.body.createdDate,
+        "Description": req.body.Description
         //complete this
     };
 });
