@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 
 let issues = [
-    {"id": 1, "CreatedDate": "14/15/2018", "description": "dhfggfghjghgjhjhhj hg g ghghg"}
+    {"id": 1, "createdDate": "14/15/2018", "description": "dhfggfghjghgjhjhhj hg g ghghg", "severity":"minor", "staus":"open", "resolvedDate":""}
 ];
 app.use(express.json());
 
@@ -28,10 +28,13 @@ app.get('/*', (req,res)=> {
 
 app.post('/issues', (req,res)=> {
     const issue = { "id": req.body.id,
-        "CreatedDate": req.body.createdDate,
-        "Description": req.body.Description
-        //complete this
+        "createdDate": req.body.createdDate,
+        "description": req.body.description,
+        "severity":req.body.severity,
+        "staus":req.body.status,
+        "resolvedDate":req.body.resolvedDate
     };
+    issues.push(issue);
 });
 
 const port = process.env.PORT || 3000;
